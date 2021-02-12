@@ -1,11 +1,23 @@
 type ThemeProps = {
-  body: string;
-  text: string;
-  primary: string;
+  color: {
+    body: string;
+    text: string;
+    primary: string;
+  };
+  font: {
+    first: string;
+    second: string;
+  };
 };
 
 export const Theme: ThemeProps = {
-  body: "#fff",
-  text: "#333",
-  primary: "#7158e2"
+  color: {
+    body: "#fff",
+    text: "#333",
+    primary: "#7158e2"
+  },
+  font: {
+    first: "Helvetica, Arial, sans-serif",
+    second: "'Spectral', Georgia"
+  }
 };
