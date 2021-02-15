@@ -4,6 +4,8 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/Global";
 import { Theme } from "../styles/Theme";
 
+import { UserStorage } from "../hooks/UserContext";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -15,9 +17,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <ThemeProvider theme={Theme}>
         <GlobalStyle />
 
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <UserStorage>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </UserStorage>
       </ThemeProvider>
     </>
   );

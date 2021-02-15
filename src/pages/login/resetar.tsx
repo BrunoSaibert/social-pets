@@ -6,8 +6,8 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.color.primary};
 `;
 
-const Login: React.FC = () => {
-  return <Title className="container">Login</Title>;
+const Resetar: React.FC = () => {
+  return <Title className="container">Resetar</Title>;
 };
 
-export default Login;
+export default Resetar;

@@ -3,17 +3,32 @@ import Link from "next/link";
 
 import * as S from "./styles";
 
+import { UserContext } from "../../hooks/UserContext";
+
 const Header: React.FC = () => {
+  const { data } = React.useContext(UserContext);
+
   return (
-    <S.Container className="container">
-      <nav>
+    <S.Container>
+      <S.Nav className="container">
         <Link href="/">
-          <a>Home</a>
+          <S.Logo aria-label="Pets - Home">
+            <img src="/dogs.svg" alt="logo" />
+          </S.Logo>
         </Link>
-        <Link href="/login">
-          <a>Login / Criar</a>
-        </Link>
-      </nav>
+
+        {data ? (
+          <div>
+            <Link href="/conta">
+              <S.Login>{data.nome}</S.Login>
+            </Link>
+          </div>
+        ) : (
+          <Link href="/login">
+            <S.Login>Login / Criar</S.Login>
+          </Link>
+        )}
+      </S.Nav>
     </S.Container>
   );
 };

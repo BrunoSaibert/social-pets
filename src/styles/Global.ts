@@ -1,6 +1,13 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
 
 import { ThemeType } from "../pages/_app";
+
+const animeLeft = keyframes`
+to {
+  opacity:1;
+  transform: initial;
+}
+`;
 
 export default createGlobalStyle<{ theme: ThemeType }>`
   * {
@@ -8,6 +15,7 @@ export default createGlobalStyle<{ theme: ThemeType }>`
   }
 
   body {
+    padding-top: 4rem;
     margin: 0;
     background: ${({ theme }) => theme.color.body};
     color: ${({ theme }) => theme.color.text};
@@ -42,9 +50,21 @@ export default createGlobalStyle<{ theme: ThemeType }>`
     color: ${({ theme }) => theme.color.text};
   }
 
+  a { 
+    text-decoration: none;
+    cursor: pointer;
+    color: ${({ theme }) => theme.color.text};
+  }
+
   .container {
     max-width: 50rem;
     padding: 0 1rem;
     margin: 0 auto;
   }
+
+  .animeLeft {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: ${animeLeft} .3s forwards;
+  }  
 `;
